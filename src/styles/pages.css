@@ -1,0 +1,295 @@
+.expertise-overview { padding-block: 20px 0 }
+.service-row { display: grid; grid-template-columns: 1fr 1fr; gap: 90px; align-items: center; padding-block: 75px; border-bottom: 1px solid var(--line) }
+.service-row h2 { font-size: clamp(30px,3vw,46px); margin: 26px 0 20px }
+.service-row h2 a { display: block }
+.service-row h2 svg { display: inline; vertical-align: middle; margin-left: 15px }
+.service-row-copy > p { color: var(--muted); font-size: 13px; line-height: 1.95; max-width: 510px }
+.service-row ul { list-style: none; padding: 0; display: grid; gap: 13px; margin: 25px 0 20px; font-size: 11px; color: #62625a }
+.service-row li::before { content: '+'; margin-right: 13px; color: #8c8c82 }
+.service-row > .product-media { min-height: 360px; background: #e7e7e0 }
+.service-navigation { display: flex; justify-content: space-between; gap: 22px; padding-block: 24px; border-bottom: 1px solid var(--line); font-size: 11px; color: #86867b }
+.service-navigation a { padding-block: 9px; position: relative }
+.service-navigation a.active { color: var(--ink) }
+.service-navigation a.active::after { content: ''; position: absolute; bottom: -25px; left: 0; right: 0; height: 1px; background: var(--ink) }
+.service-build { display: grid; grid-template-columns: 1.3fr 1fr; gap: 90px; align-items: center }
+.service-build .product-media { background: #252522; min-height: 420px }
+.build-capability { border-top: 1px solid var(--line); padding: 27px 0; display: flex; gap: 25px }
+.build-capability .mono { color: #818175; font-size: 8px; padding-top: 5px }
+.build-capability h3 { font-size: 22px; line-height: 1.4 }
+.media-note { font-size: 7px; color: #96968b; margin-top: 25px }
+.value-rows > div { display: grid; grid-template-columns: 1fr 4fr; gap: 40px; border-top: 1px solid var(--line); padding: 30px 0 }
+.value-rows .mono { color: #828279 }
+.value-rows h3 { font-size: clamp(22px,2.5vw,36px) }
+.service-stack { margin-top: 45px; display: grid; grid-template-columns: 1fr 2fr; gap: 15px 40px; align-items: baseline }
+.service-stack p { font-size: 17px; letter-spacing: -.02em; color: #c4c4b8 }
+.service-stack small { grid-column: 2; color: #87877b; font-size: 10px }
+.related-work { display: grid; grid-template-columns: 1fr 1.2fr; align-items: center; gap: 90px; border-bottom: 1px solid var(--line) }
+.related-work h2 { margin: 25px 0 }
+.related-work p { font-size: 13px; color: var(--muted); max-width: 420px; margin-bottom: 15px }
+.related-work > .product-media { background: #e6e6de }
+.work-archive { padding: 40px 0 85px }
+.work-directory article { display: grid; grid-template-columns: .5fr 1.6fr 1fr .6fr; gap: 25px; align-items: center; border-top: 1px solid var(--line); padding-block: 31px }
+.work-directory article > .mono { color: var(--muted); font-size: 8px }
+.work-directory article h3 { font-size: 24px }
+.work-directory article > span:not(.mono) { font-size: 11px; color: var(--muted) }
+.work-directory article > a { justify-self: end }
+.case-visual { padding-block: 40px 60px }
+.case-visual .product-media { background: #252522; min-height: 580px; padding: 80px 15%; overflow: hidden }
+.case-visual .product-surface { max-width: 820px; transform: rotateX(12deg) rotateY(-10deg) rotateZ(-4deg) }
+.case-visual .product-underlay { height: 65%; width: 62% }
+.case-visual .product-caption { bottom: 22px }
+.case-meta { display: grid; grid-template-columns: repeat(4,1fr); gap: 40px; margin-top: 40px }
+.case-meta .mono { text-transform: uppercase; color: #969689; font-size: 8px }
+.case-meta p { font-size: 12px; margin-top: 10px }
+.case-text-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; padding-bottom: var(--space) }
+.case-text-pair h2 { font-size: 37px; margin: 24px 0 }
+.case-text-pair p { font-size: 14px; line-height: 1.95; color: var(--muted) }
+.case-text-pair .button { margin-top: 26px }
+.architecture-heading { margin: 25px 0 48px; max-width: 740px }
+.case-features { display: grid; grid-template-columns: 1fr 1fr; gap: 0 35px; margin-top: 32px }
+.case-features > div { padding: 20px 0; border-bottom: 1px solid var(--line); display: flex; gap: 15px; align-items: baseline; font-size: 12px }
+.case-features .mono { color: #868678; font-size: 8px }
+.case-interface { background: #e7e7df; padding: 28px 35px 20px }
+.case-interface > .product-media { padding: 40px 15% 60px; min-height: 500px }
+.case-interface .product-surface { max-width: 840px; box-shadow: 0 20px 55px #00000014 }
+.case-interface .product-underlay { display: none }
+.next-project { padding: 10px 0 90px }
+.next-project > .label { color: var(--muted) }
+.next-project > .text-link { display: flex; justify-content: space-between; font-family: 'Manrope Variable'; font-size: clamp(31px,4vw,62px); letter-spacing: -.05em; border-bottom: 1px solid var(--line); padding: 25px 0 }
+.next-project > .text-link svg { width: 40px; height: 40px }
+.about-manifesto > .container { display: grid; grid-template-columns: 1fr 1fr; gap: 120px; align-items: center }
+.about-brand-study { aspect-ratio: .95; position: relative; display: flex; align-items: center; justify-content: center; border: 1px solid #36362f; background-image: linear-gradient(#ffffff08 1px,transparent 1px),linear-gradient(90deg,#ffffff08 1px,transparent 1px); background-size: 45px 45px; overflow: hidden }
+.about-brand-study > svg { width: 56%; color: #d3d3c8; z-index: 1 }
+.about-brand-study > .mono { position: absolute; bottom: 23px; left: 23px; color: #979786; font-size: 7px }
+.about-brand-study > i { position: absolute; width: 100%; height: 1px; background: #545445; top: 28%; transform: rotate(-45deg) }
+.about-brand-study > i:last-child { top: 72%; transform: rotate(45deg) }
+.about-manifesto h2 { margin: 25px 0 30px }
+.about-manifesto p { margin-top: 20px; color: #a0a092; font-size: 13px; line-height: 2 }
+.about-principles { display: grid; grid-template-columns: 1fr 1.2fr; gap: 110px; align-items: start }
+.principles-sticky { position: sticky; top: 145px }
+.principles-sticky h2 { margin: 25px 0 }
+.principles-sticky p { font-size: 13px; color: var(--muted); max-width: 300px }
+.about-principles article { border-top: 1px solid var(--line); padding: 35px 0 60px }
+.about-principles article > .mono { font-size: 8px; color: var(--muted) }
+.about-principles article h3 { font-size: 36px; margin: 28px 0 22px }
+.about-principles article p { font-size: 14px; color: var(--muted); max-width: 520px }
+.insights-body { padding-bottom: var(--space) }
+.insight-filters { display: flex; gap: 30px; padding: 30px 0; border-bottom: 1px solid var(--line); flex-wrap: wrap }
+.insight-filters button { font-size: 11px; color: var(--muted); padding: 10px 0 }
+.insight-filters button[aria-pressed=true] { color: var(--ink); box-shadow: 0 1px currentColor }
+.insight-list article { display: grid; grid-template-columns: .45fr 2fr auto; column-gap: 40px; position: relative; border-bottom: 1px solid var(--line); padding: 55px 0 }
+.insight-list article > .mono { font-size: 8px; color: var(--muted); padding-top: 5px }
+.insight-list article .label { color: #717165; font-size: 8px }
+.insight-list h2 { font-size: clamp(28px,3.3vw,49px); margin: 18px 0 17px; max-width: 760px }
+.insight-list p { font-size: 13px; color: var(--muted); max-width: 700px }
+.article-arrow { display: flex; align-items: center; justify-content: center; width: 56px; height: 56px; margin-top: 40px; transition: transform .3s }
+.article-arrow:hover { transform: translate(4px,-4px) }
+.journal-grid-art { grid-column: 2; height: 200px; margin-top: 32px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; background: #e4e4dc; background-image: linear-gradient(#00000008 1px,transparent 1px),linear-gradient(90deg,#00000008 1px,transparent 1px); background-size: 30px 30px }
+.journal-grid-art i { width: 90px; height: 90px; border: 1px solid #4c4c41; transform: rotate(-25deg) skew(-8deg); background: #ecece570 }
+.journal-grid-art i + i { margin-left: -30px; margin-top: 30px }
+.article-body { display: grid; grid-template-columns: 1fr 2.2fr; gap: 75px; padding-block: 75px var(--space) }
+.article-body aside p { color: var(--muted); font-size: 11px; margin-top: 20px }
+.article-body > div { max-width: 750px }
+.article-body section { position: relative; margin-bottom: 50px }
+.article-body section > .mono { color: #939386; font-size: 9px }
+.article-body h2 { font-size: 33px; margin: 14px 0 23px }
+.article-body section p { font-size: 16px; line-height: 1.95; color: #656559 }
+.article-end { border-top: 1px solid var(--line); padding-top: 28px }
+.article-end p { font-size: 13px; color: var(--muted); margin-bottom: 12px }
+.contact-information { display: grid; grid-template-columns: 1.1fr 1fr; gap: 110px; border-bottom: 1px solid var(--line) }
+.contact-information h2 { margin: 25px 0 }
+.contact-information p { color: var(--muted); font-size: 13px }
+.contact-information ol { list-style: none; margin: 26px 0 28px; padding: 0 }
+.contact-information li { display: flex; gap: 25px; align-items: baseline; border-top: 1px solid var(--line); padding: 23px 0; font-size: 14px; line-height: 1.7 }
+.contact-information li .mono { color: var(--muted); font-size: 8px }
+.project-page { padding-block: 65px 95px }
+.contact-flow { display: grid; grid-template-columns: 1fr 1.65fr; gap: 100px; min-height: 690px }
+.flow-sidebar { border-right: 1px solid var(--line); padding: 20px 45px 15px 0; display: flex; flex-direction: column; align-items: flex-start }
+.flow-sidebar > p { font-family: 'Manrope Variable'; font-size: clamp(27px,2.6vw,39px); line-height: 1.3; letter-spacing: -.05em; margin-top: 30px }
+.flow-sidebar ol { list-style: none; margin: 43px 0 70px; padding: 0; display: grid; gap: 23px }
+.flow-sidebar li { display: flex; align-items: center; gap: 18px; color: #99998e }
+.flow-sidebar li .mono { width: 15px; display: flex; font-size: 8px }
+.flow-sidebar li button { font-size: 12px; text-align: left; padding: 5px 0 }
+.flow-sidebar li.current { color: var(--ink) }
+.flow-sidebar li.complete { color: #65755d }
+.flow-sidebar > .mono { margin-top: auto; font-size: 8px; color: #8c8c7f }
+.flow-content { padding-top: 20px; min-width: 0 }
+.flow-progress { display: flex; justify-content: space-between; gap: 20px; position: relative; border-bottom: 1px solid var(--line); padding-bottom: 19px; margin-bottom: 42px }
+.flow-progress .mono { font-size: 8px; color: #828275 }
+.flow-progress > i { position: absolute; bottom: -1px; left: 0; height: 1px; background: var(--ink); transition: width .4s }
+.flow-content h1 { font-size: clamp(36px,3.5vw,55px); line-height: 1.16; letter-spacing: -.055em; margin-bottom: 18px }
+.flow-description { font-size: 13px; color: var(--muted); max-width: 540px; margin-bottom: 32px }
+.flow-options { border: 0; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px }
+.flow-options > label { display: flex; align-items: center; gap: 15px; justify-content: space-between; border: 1px solid #cacac0; padding: 22px 18px; position: relative; font-size: 12px; cursor: pointer; line-height: 1.5; min-height: 70px; transition: background .25s,border-color .25s }
+.flow-options > label.checked { background: #e6e8df; border-color: #6c7561 }
+.flow-options > label:hover { border-color: #6c7561 }
+.flow-options input { position: absolute; inset: 0; opacity: 0; margin: 0; width: 100%; height: 100%; cursor: pointer }
+.flow-options > label:has(input:focus-visible) { outline: 2px solid var(--accent); outline-offset: 3px }
+.radio-mark { height: 17px; width: 17px; border: 1px solid #a8ac9b; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #566a4b }
+.flow-controls { display: flex; align-items: center; justify-content: space-between; margin-top: 36px; gap: 20px }
+.contact-form { display: grid; gap: 23px }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px }
+.contact-form label { display: flex; flex-wrap: wrap; gap: 10px; font-size: 11px; line-height: 1.5 }
+.contact-form input,.contact-form textarea { width: 100%; border: 1px solid #c6c8bb; background: transparent; padding: 14px; font-size: 14px; border-radius: 0; color: var(--ink) }
+.contact-form textarea { resize: vertical; min-height: 110px }
+.contact-form textarea::placeholder { color: #939687; font-size: 12px; line-height: 1.8 }
+.contact-form .flow-controls { margin-top: 3px }
+.form-note { color: #777b6b; font-size: 10px; line-height: 1.9 }
+.brief-result > .label { margin-bottom: 28px }
+.brief-result > p { color: var(--muted); font-size: 13px; max-width: 500px }
+.brief-result pre { background: #eaece3; border: 1px solid #d6dacb; padding: 24px; font-family: inherit; font-size: 12px; line-height: 1.85; white-space: pre-wrap; overflow-wrap: anywhere; max-height: 340px; overflow: auto; margin-block: 28px }
+.brief-actions { display: flex; gap: 12px; flex-wrap: wrap }
+.brief-result > .form-note { display: block; margin-top: 15px }
+.brief-result > .text-link { margin-top: 17px }
+.legal-body { max-width: 800px; padding-block: 70px 100px }
+.legal-body section { margin-bottom: 40px }
+.legal-body h2 { font-size: 28px; margin-bottom: 18px }
+.legal-body p { font-size: 14px; color: var(--muted); line-height: 1.95 }
+@media(max-width:1100px) {
+  .service-row,.service-build,.related-work { gap: 50px }
+  .service-row > .product-media { padding-inline: 25px }
+  .case-text-pair { gap: 60px }
+  .about-manifesto > .container,.about-principles { gap: 65px }
+  .contact-flow { gap: 60px; grid-template-columns: .85fr 1.5fr }
+  .flow-sidebar { padding-right: 30px }
+  .contact-information { gap: 60px }
+}
+@media(max-width:800px) {
+  .service-row { gap: 35px }
+  .service-row > .product-media { min-height: 300px; padding-inline: 15px }
+  .service-navigation { flex-wrap: wrap; justify-content: flex-start; gap: 12px 25px }
+  .service-navigation a.active::after { bottom: 0 }
+  .service-build { grid-template-columns: 1fr; gap: 40px }
+  .service-build > div:last-child { display: grid; grid-template-columns: 1fr 1fr; gap: 0 30px }
+  .work-directory article { grid-template-columns: .3fr 1.5fr 1fr }
+  .work-directory article > span:not(.mono) { display: none }
+  .work-directory article h3 { font-size: 21px }
+  .case-visual .product-media { min-height: 470px; padding: 65px 10% }
+  .case-meta { gap: 22px }
+  .case-meta p { font-size: 10px }
+  .case-text-pair h2 { font-size: 30px }
+  .case-interface > .product-media { min-height: 400px; padding-inline: 8% }
+  .about-manifesto > .container { gap: 40px }
+  .about-manifesto .label { font-size: 8px }
+  .about-brand-study { aspect-ratio: .72 }
+  .about-principles { gap: 45px }
+  .about-principles article h3 { font-size: 30px }
+  .insight-list article { grid-template-columns: .3fr 2fr auto; column-gap: 25px }
+  .insight-list article > .mono { font-size: 6px }
+  .article-body { grid-template-columns: .6fr 2fr; gap: 40px }
+  .article-body aside .label { font-size: 7px }
+  .contact-flow { gap: 35px; grid-template-columns: .7fr 1.4fr }
+  .flow-sidebar > p { font-size: 25px }
+  .flow-sidebar { padding-right: 20px }
+  .flow-sidebar li button { font-size: 10px }
+  .flow-options { grid-template-columns: 1fr }
+  .flow-options > label { padding: 18px; min-height: 62px }
+}
+@media(max-width:600px) {
+  .service-row { grid-template-columns: 1fr; gap: 32px; padding-block: 50px }
+  .service-row h2 { font-size: 33px }
+  .service-row > .product-media { padding: 25px; min-height: 280px }
+  .service-navigation { gap: 8px 21px; font-size: 10px; padding-block: 19px }
+  .service-build .product-media { min-height: 310px; padding: 25px }
+  .service-build > div:last-child { grid-template-columns: 1fr }
+  .build-capability { padding-block: 22px; gap: 20px }
+  .build-capability h3 { font-size: 21px }
+  .value-rows > div { grid-template-columns: 25px 1fr; gap: 20px; padding-block: 25px }
+  .value-rows h3 { font-size: 25px }
+  .service-stack { grid-template-columns: 1fr; gap: 15px; margin-top: 32px }
+  .service-stack p { font-size: 14px }
+  .service-stack small { grid-column: 1 }
+  .related-work { grid-template-columns: 1fr; gap: 35px }
+  .related-work h2 { margin: 23px 0 18px }
+  .work-archive { padding-top: 12px; padding-bottom: 55px }
+  .work-directory article { grid-template-columns: 1fr auto; gap: 10px 15px; padding-block: 27px }
+  .work-directory article > .mono { grid-column: 1/-1; font-size: 7px }
+  .work-directory article h3 { font-size: 22px }
+  .work-directory article .text-link { font-size: 0; gap: 0; width: 44px; height: 44px; justify-content: center }
+  .case-visual { padding-block: 25px 40px }
+  .case-visual .product-media { min-height: 330px; padding: 38px 25px }
+  .case-visual .product-caption { font-size: 5px; bottom: 14px }
+  .case-meta { grid-template-columns: 1fr 1fr; gap: 27px; margin-top: 30px }
+  .case-meta p { font-size: 11px }
+  .case-text-pair { grid-template-columns: 1fr; gap: 48px }
+  .case-text-pair h2 { margin: 23px 0 18px; font-size: 32px }
+  .case-text-pair p { font-size: 13px }
+  .case-features { grid-template-columns: 1fr; margin-top: 23px }
+  .case-features > div { padding-block: 17px }
+  .case-interface { padding: 20px 16px }
+  .case-interface > .product-media { min-height: 290px; padding: 25px 3px 30px }
+  .next-project { padding-bottom: 60px }
+  .next-project > .text-link { font-size: 34px }
+  .next-project > .text-link svg { width: 28px; height: 28px }
+  .about-manifesto > .container { grid-template-columns: 1fr; gap: 50px }
+  .about-brand-study { aspect-ratio: 1.1 }
+  .about-principles { grid-template-columns: 1fr; gap: 40px }
+  .principles-sticky { position: static }
+  .about-principles article { padding: 27px 0 42px }
+  .about-principles article h3 { margin-top: 20px; font-size: 33px }
+  .insight-filters { gap: 8px 24px; padding-block: 23px }
+  .insight-filters button { font-size: 10px; min-height: 38px }
+  .insight-list article { grid-template-columns: 1fr auto; gap: 19px 12px; padding-block: 32px }
+  .insight-list article > .mono { grid-column: 1/-1; font-size: 7px }
+  .insight-list h2 { font-size: 29px; margin-top: 15px }
+  .insight-list p { font-size: 12px }
+  .article-arrow { width: 36px; height: 44px; margin-top: 30px }
+  .article-arrow svg { width: 27px; height: 27px }
+  .journal-grid-art { grid-column: 1/-1; margin-top: 5px; height: 170px }
+  .article-body { grid-template-columns: 1fr; padding-top: 35px; gap: 40px }
+  .article-body aside { border-bottom: 1px solid var(--line); padding-bottom: 25px }
+  .article-body aside .label { font-size: 8px }
+  .article-body aside p { margin-top: 12px; font-size: 11px }
+  .article-body h2 { font-size: 29px }
+  .article-body section p { font-size: 15px }
+  .contact-information { grid-template-columns: 1fr; gap: 45px }
+  .contact-information li { font-size: 13px; gap: 20px }
+  .project-page { padding-block: 25px 60px }
+  .contact-flow { grid-template-columns: 1fr; gap: 25px; min-height: 0 }
+  .flow-sidebar { border-right: 0; border-bottom: 1px solid var(--line); padding: 5px 0 22px }
+  .flow-sidebar > p,.flow-sidebar > .mono { display: none }
+  .flow-sidebar > .label { font-size: 8px }
+  .flow-sidebar ol { margin: 23px 0 0; display: flex; flex-wrap: wrap; gap: 12px 17px }
+  .flow-sidebar li { gap: 7px }
+  .flow-sidebar li .mono { font-size: 7px; width: 12px }
+  .flow-sidebar li button { font-size: 8px }
+  .flow-content { padding-top: 0 }
+  .flow-progress { margin-bottom: 29px; padding-bottom: 15px }
+  .flow-content h1 { font-size: 38px; margin-bottom: 16px }
+  .flow-description { font-size: 12px; margin-bottom: 26px }
+  .flow-options { gap: 10px }
+  .flow-options > label { padding: 19px; min-height: 62px; font-size: 12px }
+  .flow-controls { margin-top: 28px }
+  .form-row { grid-template-columns: 1fr; gap: 23px }
+  .contact-form input,.contact-form textarea { font-size: 16px }
+  .brief-result pre { padding: 18px; font-size: 11px }
+  .brief-actions { flex-direction: column }
+  .brief-actions .button { width: 100% }
+  .legal-body { padding-block: 45px 70px }
+}
+.hero-bottom,.sculpture-dimension,.expertise-list button > .mono,.technology-list .mono,
+.service-navigation,.value-rows .mono,.case-features .mono,.flow-progress .mono,.flow-sidebar > .mono,
+.insight-list article > .mono,.article-body section > .mono { color: #66665b }
+.expertise-list button { color: #68685e }
+.process-track button > .mono,.process-track button > span:last-child,.process-detail p,
+.insight-art > .mono,.technology-list p { color: #626256 }
+.product-caption { color: #5c5c50 }
+.dark .product-caption { color: #b0b0a2 }
+.product-media .agent-layout,.product-media .agent-layout small,.product-media .agent-trace span,
+.product-media .agent-trace > div,.product-media .preview-chrome,.product-media .preview-chrome > span,
+.product-media .agent-tool-list span { color: #555f48 }
+.product-media .product-surface :is(span,small,b) { color: #53604b }
+.product-media .product-surface :is(.mock-button,.saas-badge,.node-icon.dark,.agent-approval button) { color: #fff }
+.product-media .product-surface .mock-button span { color: #fff }
+.product-media .mock-chart > div:first-child > span { color: #53604b }
+.flow-options > label.checked { color: #20261b }
+.flow-sidebar li { color: #626256 }
+.form-note { color: #616854 }
+.process-number { color: #79796b }
+@media(prefers-reduced-motion:reduce) {
+  html { scroll-behavior: auto }
+  *,*::before,*::after { animation: none!important; transition: none!important; scroll-behavior: auto!important }
+  .route-mask,.splash { display: none }
+  .archive-object,.archive-viewport .product-surface,.archive-viewport:hover .product-surface { transform: none }
+  .archive-viewport .product-underlay { transform: translate(5px,10px) }
+}

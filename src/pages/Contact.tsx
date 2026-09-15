@@ -1,0 +1,7 @@
+import { ArrowUpRight } from 'lucide-react'
+import { CTA, FAQ, Label, PageHero } from '../components/UI'
+import { faqs } from '../data/services'
+export default function Contact() {
+  const email = (import.meta.env.VITE_CONTACT_EMAIL as string | undefined)?.trim()
+  return <><PageHero label="LET’S CONNECT" title={<>An ambitious idea.<br/><span className="muted">A considered start.</span></>} description="A new product, an existing platform or a process that could work better. Tell us where you want to go."><CTA>Start a project brief</CTA></PageHero><section className="container section-space contact-information"><div><Label>PROJECT ENQUIRIES</Label><h2>Bring the challenge.<br/>We’ll bring perspective.</h2><p>Our guided enquiry helps you define the opportunity, stage, investment range and timeline. At the end, you can review, copy or download a clear project brief.</p>{email && <a className="text-link" href={`mailto:${email}`}>{email}<ArrowUpRight size={17}/></a>}</div><div><Label>HOW WE BEGIN</Label><ol><li><span className="mono">01</span>Understand your context and goals.</li><li><span className="mono">02</span>Explore the right scope and approach.</li><li><span className="mono">03</span>Define a clear proposal and next steps.</li></ol><p className="muted">Based in India. Open to conversations across time zones.</p></div></section><section className="container section-space faq-section"><div><Label>BEFORE WE TALK</Label><h2>A little clarity.</h2></div><FAQ items={faqs}/></section></>
+}

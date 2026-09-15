@@ -1,0 +1,224 @@
+.archive { border-top: 1px solid var(--line) }
+.archive-top { display: flex; justify-content: space-between; gap: 20px; padding-block: 18px; font-size: 8px; color: #95958c }
+.archive-body { display: grid; grid-template-columns: .85fr 2fr; gap: 42px; padding-top: 18px }
+.archive-index { display: flex; flex-direction: column; align-items: stretch }
+.archive-index > button { position: relative; display: flex; flex-direction: column; gap: 12px; text-align: left; border-bottom: 1px solid #353531; padding: 24px 27px 26px 0; color: #85857e }
+.archive-index > button:first-child { border-top: 1px solid #353531 }
+.archive-index > button[aria-selected=true] { color: var(--paper) }
+.archive-index > button[aria-selected=true]::after { content: ''; width: 28px; height: 1px; background: var(--paper); position: absolute; bottom: -1px; left: 0 }
+.archive-index > button .mono { font-size: 8px; color: #7c7c74 }
+.archive-index > button > span:nth-child(2) { font-family: 'Manrope Variable'; font-size: clamp(17px,1.75vw,27px); letter-spacing: -.04em; line-height: 1.3 }
+.archive-index > button svg { position: absolute; right: 0; top: 48px; opacity: .3 }
+.archive-index > button[aria-selected=true] svg { opacity: 1 }
+.archive-disclosure { font-size: 10px; color: #8e8e85; margin-top: 25px; line-height: 1.9 }
+.archive-giant { font-family: 'Manrope Variable'; font-size: clamp(80px,10vw,150px); font-weight: 400; color: #33332e; letter-spacing: -.09em; line-height: 1; margin-top: auto; padding-top: 25px }
+.archive-giant i { font-size: 13px; font-style: normal; letter-spacing: -.01em; color: #78786f; margin-left: 12px }
+.archive-stage { min-width: 0 }
+.archive-viewport { position: relative; background: #242423; min-height: 398px; overflow: hidden; perspective: 1400px; touch-action: pan-y; cursor: grab; user-select: none; border: 1px solid #373735; background-image: linear-gradient(#ffffff04 1px,transparent 1px),linear-gradient(90deg,#ffffff04 1px,transparent 1px); background-size: 42px 42px }
+.archive-viewport:active { cursor: grabbing }
+.viewport-label { position: absolute; left: 22px; top: 20px; font-size: 7px; color: #9c9c91; z-index: 2 }
+.archive-object { transform: rotateX(var(--pointer-y,0deg)) rotateY(var(--pointer-x,0deg)); transition: transform .55s var(--ease); padding: 42px 50px 44px; animation: slab-enter .7s var(--ease) }
+.archive-object-1 { animation-name: slab-enter-side }
+.archive-object-2 { animation-name: slab-enter-depth }
+.archive-viewport .product-media { padding: 24px 0; min-height: 305px }
+.archive-viewport .product-surface { transform: rotateY(-13deg) rotateX(13deg) rotateZ(-5deg); transition: transform .7s var(--ease); box-shadow: 18px 28px 35px #0005 }
+.archive-viewport:hover .product-surface { transform: translateY(-9px) rotateY(-6deg) rotateX(7deg) rotateZ(-2deg) }
+.archive-viewport:hover .underlay-one { transform: translate(11px,13px) rotateY(-6deg) rotateX(7deg) rotateZ(-2deg) }
+.archive-viewport:hover .underlay-two { transform: translate(21px,34px) rotateY(-6deg) rotateX(7deg) rotateZ(-2deg) }
+.archive-enter { position: absolute; bottom: 20px; right: 20px; display: flex; align-items: center; gap: 12px; color: var(--ink); background: var(--paper); padding: 14px; z-index: 3 }
+.archive-enter > span { font-family: monospace; font-size: 8px; max-width: 0; overflow: hidden; white-space: nowrap; transition: max-width .4s; margin-left: -12px }
+.archive-enter:hover > span,.archive-enter:focus-visible > span { max-width: 120px; margin-left: 0 }
+.archive-coordinates { position: absolute; bottom: 20px; left: 22px; color: #94948c; font-size: 7px }
+.archive-readout { display: grid; grid-template-columns: 1.3fr 1fr; gap: 40px; padding-top: 28px }
+.archive-readout .label { font-size: 8px; color: #95958b }
+.archive-readout h3 { font-size: 25px; margin: 12px 0 }
+.archive-readout h3 a { display: flex; justify-content: space-between; gap: 15px; align-items: center }
+.archive-readout h3 svg { display: none }
+.archive-readout p { font-size: 11px; color: #95958b; line-height: 1.85; max-width: 380px }
+.archive-readout dl { margin: 0 }
+.archive-readout dl > div { display: flex; justify-content: space-between; align-items: baseline; gap: 15px; border-bottom: 1px solid #33332f; padding: 12px 0 }
+.archive-readout dt { font-family: monospace; font-size: 7px; color: #929289; letter-spacing: .04em }
+.archive-readout dd { font-size: 9px; margin: 0; text-align: right; color: #c9c9bf }
+.archive-bottom { display: flex; align-items: center; justify-content: space-between; padding-top: 33px; margin-top: 25px; border-top: 1px solid var(--line) }
+.archive-bottom > span { display: inline-flex; align-items: center; gap: 13px; font-size: 7px; color: #99998e }
+.archive-bottom > div { display: flex; align-items: center; gap: 23px }
+.archive-bottom button { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 1px solid #42423b; transition: background .25s }
+.archive-bottom button:hover { background: #34342d }
+.archive-bottom > div .mono { font-size: 8px; color: #b5b5a9 }
+.product-media { position: relative; padding: 40px; display: flex; align-items: center; justify-content: center; min-width: 0; min-height: 330px; perspective: 1400px; isolation: isolate }
+.product-surface { width: 100%; position: relative; z-index: 2; min-width: 0; max-width: 640px; color: #242424; box-shadow: 0 15px 40px #00000012 }
+.product-surface > div { width: 100% }
+.product-caption { position: absolute; bottom: 10px; left: 0; right: 0; text-align: center; font-size: 6px; letter-spacing: .08em; color: #8b8b80; z-index: 2 }
+.product-underlay { position: absolute; width: 75%; height: 65%; border: 1px solid #77776b; background: #4b4b4440; z-index: 1; transform: translate(9px,13px) rotateY(-13deg) rotateX(13deg) rotateZ(-5deg); transition: transform .7s var(--ease); opacity: .6 }
+.underlay-two { transform: translate(16px,23px) rotateY(-13deg) rotateX(13deg) rotateZ(-5deg); background: transparent; opacity: .4 }
+.product-media .crm-preview,.product-media .flow-preview,.product-media .ops-preview,.product-media .service-preview { border-radius: 2px; border-color: #cecec5; background: #f9f9f5; color: #34372f }
+.product-media .eyebrow { font-family: monospace; font-size: 7px; color: #7c8374; display: block; letter-spacing: .03em }
+.product-media .saas-hero strong { font-size: 21px }
+.product-media .saas-badge { border-radius: 2px; font-size: 7px }
+.product-media .saas-card.large i { display: none }
+.product-media .agent-approval { position: relative; right: auto; bottom: auto; width: 100%; grid-column: 1/-1; box-shadow: none; border-radius: 2px }
+.product-media .agent-orb { border-radius: 2px; background: #eaece5 }
+.product-media .agent-layout { padding: 18px; gap: 10px; height: auto }
+.product-media .agent-approval button { font-size: 9px; min-height: 35px }
+.product-media .automation-body { min-height: 230px; grid-template-columns: 1fr 1.4fr; padding: 18px; gap: 10px }
+.product-media .automation-output { grid-column: 1/-1; flex-direction: row; flex-wrap: wrap; gap: 7px; justify-content: flex-start }
+.product-media .automation-output > span { padding: 8px; font-size: 6px }
+.product-media .automation-core strong { font-size: 20px }
+.product-media .node-result { right: 12px }
+.product-media .node-trigger { left: 10px }
+.product-media .node-agent { left: calc(50% - 72px); width: 150px }
+.product-media .mock-chart { margin-top: 9px }
+.product-media .mock-heading h4 { font-size: 15px }
+.product-media .chart-content { height: 86px }
+.product-media .mock-sidebar { gap: 22px }
+.product-media .mock-top { height: 34px }
+.system-diagram { border: 1px solid #3e3e37; background: #171717 }
+.system-toolbar { display: flex; justify-content: space-between; padding: 19px 23px; border-bottom: 1px solid #343430; gap: 20px }
+.system-toolbar .label,.system-toolbar .mono { font-size: 8px; color: #aaa99e }
+.system-nodes { display: grid; grid-template-columns: repeat(5,1fr); gap: 30px; padding: 45px 28px; background-image: radial-gradient(#ffffff0e .7px, transparent .7px); background-size: 14px 14px }
+.system-node-wrap { position: relative; min-width: 0 }
+.system-node { width: 100%; text-align: left; border: 1px solid #42423a; background: #1f1f1d; color: #a1a195; padding: 16px; min-height: 154px; display: flex; flex-direction: column; align-items: flex-start; gap: 20px; position: relative; transition: border-color .3s,background .3s }
+.system-node.selected { border-color: #9b9e8e; background: #2d3029; color: var(--paper) }
+.system-node.processed { border-color: #64715a }
+.system-node > .mono { font-size: 6px; letter-spacing: .07em }
+.system-node strong { font-size: 11px; font-weight: 400; line-height: 1.5 }
+.node-glyph { width: 24px; height: 24px; display: flex; align-items: center; justify-content: center }
+.node-glyph > i { width: 21px; height: 21px; border: 1px solid #9b9c8c; position: relative }
+.node-glyph > i::after { content: ''; position: absolute; width: 10px; height: 10px; border: 1px solid currentColor; top: 5px; left: 5px; background: #25271f }
+.system-node-wrap:nth-child(2) .node-glyph > i { transform: rotate(45deg) }
+.system-node-wrap:nth-child(3) .node-glyph > i::after { top: -5px; left: 5px }
+.system-node-wrap:nth-child(4) .node-glyph > i { border-radius: 50% }
+.node-connector { position: absolute; right: -24px; top: 68px; color: #6d7063 }
+.node-port { width: 4px; height: 4px; background: #838a77; position: absolute; right: -2px; top: 50% }
+.system-inspector { border-top: 1px solid #343430; padding: 27px 28px; display: grid; grid-template-columns: .8fr 2fr; gap: 45px; min-height: 129px }
+.system-inspector .mono { font-size: 7px; color: #999b8e }
+.system-inspector h3 { font-size: 21px; margin-top: 8px }
+.system-inspector p { font-size: 12px; color: #a2a396; max-width: 680px; line-height: 1.9 }
+.system-actions { display: flex; align-items: center; justify-content: space-between; gap: 24px; border-top: 1px solid #343430; padding: 20px 28px }
+.system-actions > span { display: flex; align-items: center; gap: 10px; font-size: 10px; color: #a9ab9f; line-height: 1.8; max-width: 65% }
+.system-actions .button { min-height: 44px; padding: 12px 15px; font-size: 10px; gap: 20px; flex-shrink: 0 }
+@keyframes slab-enter { from { opacity: 0; translate: 0 24px } to { opacity: 1; translate: 0 } }
+@keyframes slab-enter-side { from { opacity: 0; translate: 28px 0 } to { opacity: 1; translate: 0 } }
+@keyframes slab-enter-depth { from { opacity: 0; scale: .94 } to { opacity: 1; scale: 1 } }
+@media(max-width:1100px) {
+  .archive-body { gap: 30px; grid-template-columns: .75fr 1.7fr }
+  .archive-viewport { min-height: 350px }
+  .archive-object { padding-inline: 30px }
+  .archive-readout { gap: 25px; grid-template-columns: 1fr }
+  .archive-readout dl { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px }
+  .archive-readout dl > div { flex-direction: column; gap: 7px }
+  .archive-readout dd { text-align: left }
+  .archive-giant { margin-top: 25px }
+  .system-nodes { padding-inline: 22px; gap: 22px }
+  .system-node { padding: 13px; min-height: 153px }
+  .node-connector { right: -20px; width: 16px }
+}
+@media(max-width:800px) {
+  .archive-body { grid-template-columns: 1fr }
+  .archive-index { flex-direction: row; gap: 24px }
+  .archive-index > button { flex: 1; padding-top: 10px; padding-right: 0; padding-bottom: 18px; border-top: 0!important; gap: 8px; align-self: stretch }
+  .archive-index > button > span:nth-child(2) { font-size: 18px }
+  .archive-index > button svg,.archive-giant,.archive-disclosure { display: none }
+  .archive-top > span:last-child { display: none }
+  .archive-viewport { min-height: 390px }
+  .archive-object { max-width: 620px; margin: auto; padding-inline: 40px }
+  .archive-readout { grid-template-columns: 1.2fr 1fr }
+  .archive-readout dl { display: block }
+  .archive-readout dl > div { flex-direction: row }
+  .system-nodes { gap: 18px; padding: 30px 17px }
+  .system-node { padding: 12px 9px }
+  .system-node > .mono { font-size: 5px }
+  .system-node strong { font-size: 9px }
+  .node-connector { right: -16px; width: 13px }
+  .system-inspector { gap: 30px }
+  .system-toolbar .mono { font-size: 6px }
+}
+@media(max-width:550px) {
+  .archive-body { gap: 21px; padding-top: 5px }
+  .archive-index { gap: 14px }
+  .archive-index > button > span:nth-child(2) { font-size: 15px; letter-spacing: -.04em }
+  .archive-index > button .mono { font-size: 6px }
+  .archive-top { font-size: 7px }
+  .archive-viewport { min-height: 290px }
+  .archive-object { padding: 35px 20px }
+  .archive-viewport .product-media { min-height: 240px; padding-top: 15px; padding-bottom: 28px }
+  .archive-viewport .product-surface { transform: rotateY(-8deg) rotateX(8deg) rotateZ(-3deg) }
+  .viewport-label { top: 14px; left: 14px; font-size: 6px }
+  .archive-enter { padding: 9px; bottom: 14px; right: 14px; min-width: 44px; min-height: 44px; justify-content: center }
+  .archive-coordinates { left: 14px; bottom: 14px; font-size: 6px }
+  .archive-readout { grid-template-columns: 1fr; gap: 12px; padding-top: 24px }
+  .archive-readout h3 { font-size: 24px }
+  .archive-readout h3 svg { display: block }
+  .archive-readout dl { display: grid; gap: 16px }
+  .archive-readout dl > div { flex-direction: column; gap: 7px }
+  .archive-readout dt { font-size: 6px }
+  .archive-readout dd { font-size: 8px }
+  .archive-bottom { padding-top: 20px; margin-top: 16px; gap: 20px }
+  .archive-bottom > span { max-width: 150px; line-height: 1.8; font-size: 6px }
+  .archive-bottom > span > svg { display: none }
+  .archive-bottom > div { gap: 12px }
+  .archive-bottom > div .mono { font-size: 7px; white-space: nowrap }
+  .archive-bottom button { width: 39px; height: 44px }
+  .product-media { min-height: 265px; padding: 25px }
+  .product-media .mock-sidebar { width: 27px; gap: 21px; padding-block: 13px }
+  .product-media .mock-sidebar svg { width: 12px; height: 12px }
+  .product-media .mock-main { padding-inline: 10px; padding-bottom: 8px }
+  .product-media .mock-top { height: 28px; font-size: 5px }
+  .product-media .mock-heading { padding: 10px 0 }
+  .product-media .mock-heading h4 { font-size: 10px }
+  .product-media .mock-heading .eyebrow { font-size: 4px }
+  .product-media .mock-button { font-size: 4px; padding: 4px }
+  .product-media .mock-stats { gap: 5px }
+  .product-media .mock-stats > div { padding: 7px 5px }
+  .product-media .mock-stats strong { font-size: 13px }
+  .product-media .mock-stats > div > span { font-size: 4px }
+  .product-media .mock-stats small { font-size: 4px }
+  .product-media .mock-stats small > span { display: none }
+  .product-media .chart-content { height: 62px; margin-top: 10px }
+  .product-media .mock-table { margin-top: 8px }
+  .product-media .mock-table b { margin: 0 }
+  .product-media .mock-table > div { font-size: 4px; padding: 5px 0 }
+  .product-media .mock-chart { padding: 8px }
+  .product-media .mock-chart > div:first-child { font-size: 6px }
+  .product-media .mock-table > div:first-child { font-size: 6px }
+  .product-media .deal-icon { width: 13px; height: 13px }
+  .product-media .deal-status { font-size: 4px }
+  .product-media .saas-hero { padding: 16px }
+  .product-media .saas-hero strong { font-size: 16px }
+  .product-media .saas-badge { padding: 6px; font-size: 6px }
+  .product-media .saas-grid { padding-inline: 14px; gap: 6px }
+  .product-media .saas-card { min-height: 80px; padding: 10px 7px }
+  .product-media .saas-card strong { font-size: 16px }
+  .product-media .saas-card span,.product-media .saas-card small { font-size: 5px }
+  .product-media .saas-release { margin: 10px 14px; padding: 10px }
+  .product-media .saas-release small { font-size: 7px }
+  .product-media .preview-chrome { height: 34px; font-size: 7px; padding-inline: 12px }
+  .product-media .flow-canvas { height: 216px }
+  .product-media .node-trigger { left: 10px; top: 20px; width: 124px }
+  .product-media .node-agent { top: 83px; left: calc(50% - 72px); width: 145px }
+  .product-media .node-result { right: 9px; top: 164px; width: 126px }
+  .product-media .flow-model { left: 11px; top: 170px; font-size: 5px; padding: 6px }
+  .product-media .flow-model > span { display: none }
+  .product-media .flow-line.horizontal { top: 135px; left: 70px; right: 60px; transform: rotate(48deg) }
+  .product-media .flow-line.vertical { height: 90px; left: 40%; top: 58px }
+  .product-media .flow-particle { display: none }
+  .product-media .flow-bottom { font-size: 5px; padding-inline: 10px }
+  .product-media .automation-core { padding: 12px }
+  .product-media .automation-core strong { font-size: 16px }
+  .product-media .agent-trace > div { font-size: 6px; gap: 6px; padding: 9px }
+  .system-toolbar { padding: 16px; flex-wrap: wrap; gap: 6px }
+  .system-toolbar .label { font-size: 7px }
+  .system-toolbar .mono { font-size: 6px }
+  .system-nodes { grid-template-columns: 1fr; gap: 17px; padding: 22px }
+  .system-node { min-height: 67px; display: grid; grid-template-columns: 80px 25px 1fr; align-items: center; gap: 15px; padding: 17px }
+  .system-node > .mono { font-size: 6px }
+  .system-node strong { font-size: 11px }
+  .node-connector { right: auto; left: 50%; top: auto; bottom: -16px; transform: rotate(90deg); height: 15px }
+  .node-port { top: auto; bottom: -2px; right: 50% }
+  .system-inspector { padding: 23px; grid-template-columns: 1fr; gap: 15px }
+  .system-inspector h3 { font-size: 23px }
+  .system-inspector p { font-size: 12px }
+  .system-actions { padding: 20px 23px; flex-direction: column; align-items: stretch; gap: 20px }
+  .system-actions > span { max-width: 100%; font-size: 10px }
+  .system-actions .button { min-height: 48px }
+}
