@@ -29,11 +29,11 @@ jobs:
 
       - run: npm ci
 
+      # Reads the Pages configuration, so Pages must already be enabled with
+      # source "GitHub Actions" under Settings, Pages. The API enablement input
+      # is not used: the default token cannot create the site on this repo.
       - uses: actions/configure-pages@v5
         id: pages
-        with:
-          # Turn Pages on (source: GitHub Actions) if it is not enabled yet.
-          enablement: true
 
       - name: Build
         env:
