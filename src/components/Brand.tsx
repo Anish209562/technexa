@@ -7,5 +7,5 @@ export function BrandMark({ className = '' }: { className?: string }) {
   return <svg className={className} viewBox="0 0 212 212" fill="currentColor" aria-hidden="true">{paths.map(d => <path key={d} d={d} />)}</svg>
 }
 export default function Brand() {
-  return <img className="brand-logo" src="/images/technexa-logo.png" alt="Technexa" width="1340" height="224" />
+  return <img className="brand-logo" src={`${import.meta.env.BASE_URL}images/technexa-logo.png`} alt="Technexa" width="1340" height="224" />
 }

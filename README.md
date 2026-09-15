@@ -65,6 +65,14 @@ Pages are lazy-loaded; Three.js is split into separately loaded chunks. The buil
 
 Content is rendered by React. The build generates route-specific metadata, not a server-rendered copy of page bodies.
 
+### GitHub Pages
+
+`.github/workflows/deploy.yml` builds and publishes the site on every push to `main`, and can also be run manually from the Actions tab. The live URL is **https://expercodevaibhav.github.io/tnsol/**.
+
+Project pages are served from a subpath, so the workflow passes `BASE_PATH` (the Vite `base`, which also becomes the router `basename`) and `VITE_SITE_URL` from the Pages configuration. Nothing needs to be committed for this: `dist` stays untracked and the workflow uploads it as a Pages artifact. `VITE_CONTACT_EMAIL` is read from an optional repository variable of the same name (Settings, Secrets and variables, Actions, Variables).
+
+The build also emits `404.html` so unknown deep links load the app and reach the 404 route, and `.nojekyll` so no file is stripped by Jekyll. To move to a custom domain instead, set the domain under Settings, Pages and remove `BASE_PATH` from the workflow so the site builds at the root.
+
 ## Verification
 
 Optional Windows browser checks use the installed agent-browser executable. Start the development server first. If the browser is not installed, run `npx agent-browser install` once.

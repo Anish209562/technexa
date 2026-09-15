@@ -12,6 +12,8 @@ const escapeHtml = (text: string) => text.replace(/&/g,'&amp;').replace(/"/g,'&q
 
 // https://vite.dev/config/
 export default defineConfig({
+  // GitHub Pages serves this repo under /<repo>/; the workflow sets BASE_PATH. Local dev and Vercel stay at the root.
+  base: `/${(process.env.BASE_PATH || '').replace(/^\/|\/$/g,'')}/`.replace('//','/'),
   plugins: [react(), {
     name: 'technexa-route-metadata',
     apply: 'build',
@@ -36,6 +38,9 @@ export default defineConfig({
       }
       await writeFile(resolve(output,'robots.txt'),`User-agent: *\nAllow: /\n${base ? `Sitemap: ${base}/sitemap.xml\n` : ''}`)
       if (base) await writeFile(resolve(output,'sitemap.xml'),`<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${routes.map(path => `<url><loc>${escapeHtml(base+path)}</loc></url>`).join('')}</urlset>`)
+      // GitHub Pages: unmatched deep links fall back to the SPA shell; .nojekyll keeps underscore-prefixed chunks servable.
+      await writeFile(resolve(output,'404.html'),template)
+      await writeFile(resolve(output,'.nojekyll'),'')
     },
   }],
   build: {

@@ -138,5 +138,5 @@ export default function Sculpture() {
       renderer.domElement.remove()
     }
   }, [])
-  return <div ref={host} className={state === 'loading' ? 'sculpture' : 'sculpture is-ready'} role="img" aria-label="The Technexa monogram rendered as three precision-machined, interlocking metal forms with subtle pointer response">{state !== 'live' && <img src="/images/technexa-mark.png" alt="" className="sculpture-fallback"/>}</div>
+  return <div ref={host} className={state === 'loading' ? 'sculpture' : 'sculpture is-ready'} role="img" aria-label="The Technexa monogram rendered as three precision-machined, interlocking metal forms with subtle pointer response">{state !== 'live' && <img src={`${import.meta.env.BASE_URL}images/technexa-mark.png`} alt="" className="sculpture-fallback"/>}</div>
 }
