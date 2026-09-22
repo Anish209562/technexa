@@ -14,7 +14,7 @@ export default function useMotion(ref: RefObject<HTMLElement | null>) {
         if(ref.current?.querySelector('.hero-line')) {
           const entrance=gsap.timeline({paused:document.documentElement.dataset.boot==='loading'})
           entrance.from('.hero-line > span',{yPercent:110,rotateX:12,opacity:0,duration:1.25,stagger:.12,ease:'power4.out'},.1)
-          if(ref.current.querySelector('.hero-caption')) entrance.from('.hero-caption,.hero2026-actions',{y:22,opacity:0,duration:1,stagger:.12,ease:'power3.out'},.65)
+          if(ref.current.querySelector('.hero-caption')) entrance.from('.hero-caption',{y:22,opacity:0,duration:1,ease:'power3.out'},.65)
           if(ref.current.querySelector('.engineered-object')) entrance.from('.engineered-object',{rotateY:24,rotateX:-10,y:35,opacity:0,duration:1.5,ease:'power3.out'},.25)
           const play=()=>entrance.play()
           window.addEventListener('technexa-ready',play,{once:true})

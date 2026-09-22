@@ -24,7 +24,9 @@ h1,h2,h3 { font-weight:500 }
 .label { letter-spacing:.1em }
 .label-square { border-radius:50%; width:4px; height:4px }
 .hero2026 { position:relative; overflow:clip; isolation:isolate }
-.hero2026 :is(a,button),.capabilities-ribbon a,.perspective2026 a,.selected-work2026 :is(a,button),.expertise-section :is(a,button),.intelligence-section :is(a,button) { position:relative; z-index:6; pointer-events:auto }
+.hero2026-title,.hero-caption,.portfolio-section-heading h2,.portfolio-section-heading p { pointer-events:none }
+.hero2026-copy,.hero2026-actions,.hero2026-bottom,.portfolio-section-heading,.portfolio-section-heading > div:last-child { pointer-events:auto }
+.hero2026 :is(a,button),.capabilities-ribbon a,.perspective2026 a,.selected-work2026 :is(a,button),.expertise-section :is(a,button),.intelligence-section :is(a,button) { position:relative; z-index:20; pointer-events:auto }
 .hero2026-grid { position:absolute; inset:0; z-index:-1; background:linear-gradient(90deg,transparent 49.9%,#87927b12 50%,transparent 50.1%),radial-gradient(ellipse at 83% 45%,#5057492a,transparent 49%); pointer-events:none }
 .hero2026-topline { display:flex; justify-content:space-between; align-items:center; gap:25px; padding-top:30px; color:#aab1a4 }
 .hero2026-topline .label,.hero2026-topline > span { font-size:8px }
@@ -38,7 +40,7 @@ h1,h2,h3 { font-weight:500 }
 .hero-caption { display:grid; grid-template-columns:150px 1fr; gap:25px; margin-top:34px; max-width:560px; align-items:start }
 .hero-caption > .mono { color:#a5af9e; font-size:8px; padding-top:3px }
 .hero-caption p { color:#abb1a5; font-size:12px; line-height:1.8 }
-.hero2026-actions { display:flex; align-items:center; gap:35px; margin-top:28px }
+.hero2026-actions { display:flex; align-items:center; gap:35px; margin-top:28px; position:relative; z-index:20 }
 .hero2026-actions .button { min-height:53px; gap:35px }
 .hero2026-actions .text-link { color:#e2e8da }
 .engineered-object { position:relative; width:100%; max-width:420px; margin-left:auto; margin-top:5px; perspective:1000px; pointer-events:none }
@@ -82,7 +84,7 @@ h1,h2,h3 { font-weight:500 }
 .portfolio-section-heading { display:flex; justify-content:space-between; gap:50px; align-items:flex-end; padding-bottom:45px }
 .portfolio-section-heading h2 { font-family:'Inter Variable',sans-serif; font-size:clamp(52px,7vw,108px); line-height:.98; letter-spacing:-.065em; margin-top:28px }
 .outline-type { -webkit-text-stroke:1px #a7b299; color:transparent }
-.portfolio-section-heading > div:last-child { padding-bottom:10px; min-width:270px }
+.portfolio-section-heading > div:last-child { padding-bottom:10px; min-width:270px; position:relative; z-index:20 }
 .portfolio-section-heading p { font-size:12px; color:#aeb5a6; line-height:1.9 }
 .portfolio-section-heading .text-link { margin-top:18px }
 .portfolio-gallery { position:relative }
