@@ -271,8 +271,7 @@
 .service-navigation,.value-rows .mono,.case-features .mono,.flow-progress .mono,.flow-sidebar > .mono,
 .insight-list article > .mono,.article-body section > .mono { color: #66665b }
 .expertise-list button { color: #68685e }
-.process-track button > .mono,.process-track button > span:last-child,.process-detail p,
-.insight-art > .mono,.technology-list p { color: #626256 }
+.technology-list p { color: #626256 }
 .product-caption { color: #5c5c50 }
 .dark .product-caption { color: #b0b0a2 }
 .product-media .agent-layout,.product-media .agent-layout small,.product-media .agent-trace span,
@@ -285,7 +284,6 @@
 .flow-options > label.checked { color: #20261b }
 .flow-sidebar li { color: #626256 }
 .form-note { color: #616854 }
-.process-number { color: #79796b }
 @media(prefers-reduced-motion:reduce) {
   html { scroll-behavior: auto }
   *,*::before,*::after { animation: none!important; transition: none!important; scroll-behavior: auto!important }

@@ -119,21 +119,20 @@ h1,h2,h3 { font-weight:500 }
 .gallery-disclosure { font-size:6px; color:#94a185; margin-top:15px; letter-spacing:.07em }
 .portfolio-fallback { position:absolute; inset:15% 15% 20%; background:#e6ebdd; color:#25301e; padding:30px; display:flex; flex-direction:column; justify-content:center; transform:perspective(800px) rotateY(-8deg) rotateZ(-2deg); border:1px solid #879e70 }
 .portfolio-fallback h3 { margin:20px 0 }.portfolio-fallback p { font-size:12px }.portfolio-fallback button { text-align:left; padding:20px 0 0; text-decoration:underline }
+.expertise-section.section-space { position:relative; padding-top:28px; min-height:calc(100vh + 360vh) }
+.expertise-scroll-start { display:block; height:0; pointer-events:none }
+.expertise-sticky { position:sticky; top:148px; z-index:1; background:var(--paper); padding:1px 0 24px }
 .expertise-section .section-heading h2 { font-size:clamp(36px,4vw,63px) }
 .expertise-list button { border-color:#c6cebd; transition:color .25s,padding .4s,background .3s; padding:26px 0 }
 .expertise-list button[aria-selected=true] { padding-inline:14px; background:#dfe5d6; color:#25301e }
 .expertise-list button > span:nth-child(2) { font-size:clamp(21px,2.25vw,34px) }
 .expertise-visual { border-radius:3px; background:#dfe4d6; perspective:1100px; overflow:visible }
-.expertise-description { padding-top:27px }.expertise-description h3 { font-size:29px }
+.expertise-description { padding-top:12px }.expertise-description h3 { font-size:29px }.expertise-description p { font-size:10px; line-height:1.4; margin:6px 0 8px; max-width:520px; white-space:nowrap }.expertise-description .text-link { font-size:9px; gap:8px; padding-block:2px }.expertise-description .text-link svg { width:12px; height:12px }
 .intelligence-section { background:#171d16; border-top:1px solid #3b4534 }
 .intelligence-section .system-diagram { background:transparent }
-.why-section { padding-block:120px }.why-intro h2 { font-size:clamp(34px,3.6vw,57px) }
-.principle-list > div { padding-top:28px }.principle-list h3 { font-size:26px }
-.principle-mark { transform:perspective(900px) rotateY(-28deg) rotateZ(-9deg); color:#c7d0bf }
 .process-section { background:#dce3d2 }
-.process-track button.active,.process-track button[aria-selected=true] { color:#24331b }
+.process-track button.active,.process-track button[aria-pressed=true] { color:#24331b }
 .technology-section { border-color:#c0ccb4 }
-.insight-art { background:#dce4d2 }.insight-art > div { border-color:#738565 }
 .page-hero { position:relative; background:#131712; color:#edf0e6; padding:87px 0 72px; overflow:hidden; --muted:#a4b298; --line:#3f4b34 }
 .page-hero::after { content:'+'; position:absolute; right:5%; top:52px; color:#879974; font:32px monospace; pointer-events:none }
 .page-hero .label { color:#b0bea4; font-size:8px }
@@ -224,6 +223,10 @@ h1,h2,h3 { font-weight:500 }
   .collection-directory { grid-template-columns:1fr; gap:40px }.collection-directory-heading { position:static }.collection-directory-heading p { max-width:480px }.collection-directory-heading h2 { margin:25px 0 }
   .collection-note { column-gap:35px; grid-template-columns:1fr 2fr }.collection-entry { grid-template-columns:1fr 2.5fr; gap:35px }
 }
+@media(max-width:899px) {
+  .expertise-section.section-space { min-height:0 }
+  .expertise-sticky { position:static; padding-bottom:0 }
+}
 @media(max-width:600px) {
   :root { --gutter:22px }
   .site-header .brand-logo { width:127px }.header-cta { font-size:9px }
@@ -250,7 +253,6 @@ h1,h2,h3 { font-weight:500 }
   .gallery-index { gap:13px }.gallery-index button { display:grid; grid-template-columns:1fr 14px; gap:12px 7px; padding-block:16px; font-size:8px; align-items:center }.gallery-index button > .mono { grid-column:1/-1; font-size:6px }.gallery-index button > span:nth-child(2) { line-height:1.5 }.gallery-index svg { width:12px }.gallery-disclosure { font-size:5px; line-height:1.8; margin-top:10px }
   .portfolio-fallback { inset:15% 13% 20%; padding:22px }.portfolio-fallback h3 { font-size:25px; margin:14px 0 }.portfolio-fallback p { font-size:10px }.portfolio-fallback > span { font-size:9px }
   .expertise-section .section-heading h2 { font-size:35px }.expertise-list button { padding:22px 0 }.expertise-list button > span:nth-child(2) { font-size:23px }.expertise-description h3 { font-size:26px }
-  .why-section { padding-block:70px }.why-intro h2 { font-size:35px }.principle-list h3 { font-size:25px }
   .page-hero { padding:54px 0 42px }.page-hero::after { font-size:23px; right:22px; top:36px }.page-hero .label { font-size:7px; max-width:85% }.page-hero h1 { font-size:11.6vw; letter-spacing:-.064em; line-height:1.07; margin:34px 0 30px }.page-hero-bottom { padding-top:24px }.page-hero-bottom p { font-size:12px }
   .footer { padding-top:60px }.footer-callout h2 { font-size:11.6vw }.footer-arrow { width:46px; height:46px }.footer-callout p { font-size:11px }.footer-grid { padding-block:42px }.footer-wordmark { font-size:15.7vw; padding:24px 0 10px }.footer-bottom { font-size:8px }
   .collection-hero { padding:26px 0 60px }.collection-intro { gap:15px }.collection-intro .label { font-size:6px }.collection-intro > span { font-size:5px; gap:8px; max-width:100px; text-align:right }.collection-intro > span svg { width:11px }
@@ -265,4 +267,6 @@ h1,h2,h3 { font-weight:500 }
 @media(prefers-reduced-motion:reduce) {
   html { scroll-behavior:auto }.hero-object-frame,.engineered-object,.hero2026-title,[data-tilt] { transform:none!important }
   .collection-symbol i,.button,.gallery-index button::before { transition:none }
+  .expertise-section.section-space { min-height:0 }
+  .expertise-sticky { position:static; padding-bottom:0 }
 }

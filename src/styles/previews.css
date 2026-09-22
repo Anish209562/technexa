@@ -48,3 +48,85 @@
 .ops-foot{display:flex;justify-content:space-between;gap:12px;padding:10px 15px;border-top:1px solid #e9ede3;font-size:6px;color:#8a9a7c}
 .ops-foot span{display:flex;align-items:center;gap:5px}
 .ops-foot .status-dot{width:4px;height:4px}
+
+.preview-signal{position:absolute;z-index:4;pointer-events:none;font-family:'SFMono-Regular',Consolas,'Liberation Mono',monospace;text-transform:uppercase;letter-spacing:.08em;font-size:6px;color:#38502f;background:#eef5e8;border:1px solid #cbdcc1;border-radius:999px;padding:5px 8px;box-shadow:0 8px 18px #2c3b2412;white-space:nowrap}
+.chart-content{position:relative;overflow:hidden}
+.crm-signal{right:18px;top:13px;animation:signal-scan 4.8s ease-in-out infinite}
+.crm-preview .mock-chart svg path:last-child{stroke-dasharray:520;stroke-dashoffset:520;animation:chart-draw 4.8s ease-in-out infinite}
+.crm-preview .mock-chart svg path:first-of-type{animation:chart-fill 4.8s ease-in-out infinite}
+.mock-stats>div{animation:metric-lift 5.4s ease-in-out infinite}
+.mock-stats>div:nth-child(2){animation-delay:.35s}
+.mock-stats>div:nth-child(3){animation-delay:.7s}
+.mock-table>div:not(:first-child){animation:row-pulse 4.6s ease-in-out infinite}
+.mock-table>div:nth-child(3){animation-delay:1.2s}
+
+.expertise-visual .product-media .saas-card.large i{display:block}
+.saas-preview .saas-badge{animation:badge-pulse 3.8s ease-in-out infinite}
+.saas-card.large i{animation:usage-sweep 4.5s ease-in-out infinite;background-size:180% 100%}
+.saas-card{animation:metric-lift 5.8s ease-in-out infinite}
+.saas-card:nth-child(2){animation-delay:.4s}
+.saas-card:nth-child(3){animation-delay:.8s}
+.saas-release{position:relative;overflow:hidden}
+.saas-release::before{content:'';position:absolute;left:-30%;top:0;bottom:0;width:30%;background:linear-gradient(90deg,transparent,#9dbd7e33,transparent);animation:release-sweep 4.6s linear infinite}
+.saas-release i{position:relative;overflow:hidden}
+.saas-release i::after{content:'';position:absolute;inset:0;background:#5f8751;transform-origin:left;animation:release-line 4.8s ease-in-out infinite}
+.saas-signal{right:14px;bottom:12px;animation:signal-scan 5s ease-in-out infinite}
+
+.automation-preview .doc-stack>div{animation:doc-intake 5.2s ease-in-out infinite}
+.automation-preview .doc-stack>div:nth-child(2){animation-delay:.55s}
+.automation-preview .doc-stack>div:nth-child(3){animation-delay:1.1s}
+.automation-core{position:relative;overflow:hidden}
+.automation-core::before{content:'';position:absolute;inset:-35%;background:conic-gradient(from 0deg,transparent,#8bae7430,transparent 40%);animation:core-spin 6s linear infinite}
+.automation-core>*{position:relative;z-index:1}
+.automation-output>span{animation:output-check 4.6s ease-in-out infinite}
+.automation-output>span:nth-child(2){animation-delay:.5s}
+.automation-output>span:nth-child(3){animation-delay:1s}
+.automation-signal{left:50%;bottom:14px;transform:translateX(-50%);animation:signal-scan-centered 4.8s ease-in-out infinite}
+
+.ops-track-line>i{animation:pipeline-run 4.8s ease-in-out infinite}
+.ops-stage.done>span{animation:stage-confirm 4.8s ease-in-out infinite}
+.ops-stage:nth-child(2)>span{animation-delay:.35s}
+.ops-stage:nth-child(3)>span{animation-delay:.7s}
+.ops-stage:nth-child(4)>span{animation-delay:1.05s}
+.ops-row{animation:row-pulse 5.2s ease-in-out infinite}
+.ops-row:nth-child(3){animation-delay:.8s}
+.ops-action{animation:badge-pulse 4.2s ease-in-out infinite}
+.ops-signal{left:50%;top:28px;transform:translateX(-50%);animation:signal-scan-centered 5s ease-in-out infinite}
+
+.agent-orb{position:relative;overflow:hidden}
+.agent-orb::before{content:'';position:absolute;width:70%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#7fa36626,transparent 68%);animation:agent-orbit 4.8s ease-in-out infinite}
+.agent-orb>*{position:relative;z-index:1}
+.agent-trace>div{animation:trace-step 5.6s ease-in-out infinite}
+.agent-trace>div:nth-child(2){animation-delay:.45s}
+.agent-trace>div:nth-child(3){animation-delay:.9s}
+.agent-trace>div:nth-child(4){animation-delay:1.35s}
+.agent-tool-list span{animation:tool-ready 5.2s ease-in-out infinite}
+.agent-tool-list span:nth-child(2){animation-delay:.45s}
+.agent-tool-list span:nth-child(3){animation-delay:.9s}
+.agent-approval{animation:approval-float 5s ease-in-out infinite}
+.agent-signal{left:50%;bottom:16px;transform:translateX(-50%);font-size:5px;animation:signal-scan-centered 4.8s ease-in-out infinite}
+
+@keyframes chart-draw{0%{stroke-dashoffset:520}38%,72%{stroke-dashoffset:0}100%{stroke-dashoffset:-520}}
+@keyframes chart-fill{0%,20%{opacity:.05}45%,80%{opacity:1}100%{opacity:.18}}
+@keyframes metric-lift{0%,100%{transform:none;box-shadow:none}45%{transform:translateY(-3px);box-shadow:0 12px 22px #2e422318}}
+@keyframes row-pulse{0%,100%{background:transparent}45%{background:#edf4e933}}
+@keyframes badge-pulse{0%,100%{transform:none;box-shadow:none}50%{transform:translateY(-1px);box-shadow:0 8px 18px #31472724}}
+@keyframes usage-sweep{0%{background-position:100% 0}50%{background-position:0 0}100%{background-position:-100% 0}}
+@keyframes release-sweep{to{left:100%}}
+@keyframes release-line{0%{transform:scaleX(.15)}55%{transform:scaleX(1)}100%{transform:scaleX(.15)}}
+@keyframes signal-scan{0%,100%{opacity:.55;transform:translateY(4px)}50%{opacity:1;transform:translateY(0)}}
+@keyframes signal-scan-centered{0%,100%{opacity:.55;transform:translate(-50%,4px)}50%{opacity:1;transform:translate(-50%,0)}}
+@keyframes doc-intake{0%,100%{transform:none}45%{transform:translateX(6px);border-color:#b6cda7}}
+@keyframes core-spin{to{transform:rotate(360deg)}}
+@keyframes output-check{0%,100%{transform:none;background:#f7faf4}45%{transform:translateX(-4px);background:#eef7e8}}
+@keyframes pipeline-run{0%{width:8%}55%{width:100%}100%{width:8%}}
+@keyframes stage-confirm{0%,100%{transform:none}45%{transform:scale(1.08)}}
+@keyframes agent-orbit{0%,100%{transform:scale(.8);opacity:.35}50%{transform:scale(1.18);opacity:.85}}
+@keyframes trace-step{0%,100%{transform:none;background:#fff}45%{transform:translateX(4px);background:#f2f8ed}}
+@keyframes tool-ready{0%,100%{border-color:#e3eadb}45%{border-color:#aac49a;background:#eef7e8}}
+@keyframes approval-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+@keyframes flow-travel{from{left:40px;opacity:0}10%,85%{opacity:1}to{left:calc(100% - 40px);opacity:0}}
+
+@media(prefers-reduced-motion:reduce){
+  .preview-signal,.crm-preview .mock-chart svg path,.mock-stats>div,.mock-table>div,.saas-preview .saas-badge,.saas-card,.saas-card.large i,.saas-release::before,.saas-release i::after,.automation-preview .doc-stack>div,.automation-core::before,.automation-output>span,.ops-track-line>i,.ops-stage.done>span,.ops-row,.ops-action,.agent-orb::before,.agent-trace>div,.agent-tool-list span,.agent-approval,.flow-particle{animation:none!important}
+}

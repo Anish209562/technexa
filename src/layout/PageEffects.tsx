@@ -1,10 +1,36 @@
-import { useEffect } from 'react'
+import { useEffect, useLayoutEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { getMetadata } from '../lib/metadata'
 export default function PageEffects() {
   const { pathname } = useLocation()
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'instant' })
+    const previousRestoration = window.history.scrollRestoration
+    window.history.scrollRestoration = 'manual'
+    return () => { window.history.scrollRestoration = previousRestoration }
+  },[])
+  useLayoutEffect(() => {
+    const forceTop = () => {
+      const root = document.documentElement
+      const body = document.body
+      const rootScrollBehavior = root.style.scrollBehavior
+      const bodyScrollBehavior = body.style.scrollBehavior
+      root.style.scrollBehavior = 'auto'
+      body.style.scrollBehavior = 'auto'
+      document.documentElement.scrollTop = 0
+      document.body.scrollTop = 0
+      window.scrollTo(0, 0)
+      root.style.scrollBehavior = rootScrollBehavior
+      body.style.scrollBehavior = bodyScrollBehavior
+    }
+    forceTop()
+    const frame = requestAnimationFrame(forceTop)
+    const timers = [60,250,700].map(delay => window.setTimeout(forceTop, delay))
+    return () => {
+      cancelAnimationFrame(frame)
+      timers.forEach(timer => window.clearTimeout(timer))
+    }
+  },[pathname])
+  useEffect(() => {
     const metadata = getMetadata(pathname)
     const base = ((import.meta.env.VITE_SITE_URL as string | undefined) || window.location.origin).replace(/\/$/,'')
     const canonical = `${base}${pathname}`
