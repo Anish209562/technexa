@@ -24,6 +24,7 @@ h1,h2,h3 { font-weight:500 }
 .label { letter-spacing:.1em }
 .label-square { border-radius:50%; width:4px; height:4px }
 .hero2026 { position:relative; overflow:clip; isolation:isolate }
+.hero2026 :is(a,button),.capabilities-ribbon a,.perspective2026 a,.selected-work2026 :is(a,button),.expertise-section :is(a,button),.intelligence-section :is(a,button) { position:relative; z-index:6; pointer-events:auto }
 .hero2026-grid { position:absolute; inset:0; z-index:-1; background:linear-gradient(90deg,transparent 49.9%,#87927b12 50%,transparent 50.1%),radial-gradient(ellipse at 83% 45%,#5057492a,transparent 49%); pointer-events:none }
 .hero2026-topline { display:flex; justify-content:space-between; align-items:center; gap:25px; padding-top:30px; color:#aab1a4 }
 .hero2026-topline .label,.hero2026-topline > span { font-size:8px }
@@ -40,18 +41,18 @@ h1,h2,h3 { font-weight:500 }
 .hero2026-actions { display:flex; align-items:center; gap:35px; margin-top:28px }
 .hero2026-actions .button { min-height:53px; gap:35px }
 .hero2026-actions .text-link { color:#e2e8da }
-.engineered-object { position:relative; width:100%; max-width:420px; margin-left:auto; margin-top:5px; perspective:1000px }
+.engineered-object { position:relative; width:100%; max-width:420px; margin-left:auto; margin-top:5px; perspective:1000px; pointer-events:none }
 .object-topline,.object-bottomline { display:flex; align-items:center; justify-content:space-between; color:#9ca493; font-size:7px; letter-spacing:.12em }
 .object-topline { padding:0 0 17px; border-bottom:1px solid #6e796538 }
 .object-topline span:last-child { color:#c2cbbb; border:1px solid #5b66514a; padding:3px 6px }
 .hero-object-frame { position:relative; height:365px; perspective:800px; transform-style:preserve-3d }
-.object-inner { position:absolute; inset:12px 0; z-index:3 }
+.object-inner { position:absolute; inset:12px 0; z-index:3; pointer-events:none }
 .object-inner .sculpture { inset:0 }
 .object-inner .sculpture-fallback { filter:invert(1); mix-blend-mode:screen; width:45%; left:28%; height:50%; top:25% }
-.object-axis { position:absolute; background:#9aab8721; z-index:0 }
+.object-axis { position:absolute; background:#9aab8721; z-index:0; pointer-events:none }
 .axis-x { width:100%; height:1px; top:50% }
 .axis-y { height:100%; width:1px; left:50% }
-.object-orbit { width:79%; aspect-ratio:1; border:1px solid #9cab872a; border-radius:50%; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%) rotateX(53deg) rotateY(-30deg) }
+.object-orbit { width:79%; aspect-ratio:1; border:1px solid #9cab872a; border-radius:50%; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%) rotateX(53deg) rotateY(-30deg); pointer-events:none }
 .orbit-b { width:84%; transform:translate(-50%,-50%) rotateX(-13deg) rotateY(59deg); border-color:#9cab873e }
 .object-coordinate { position:absolute; font-size:7px; color:#8e9b80 }
 .coord-a { top:11%; left:2% }.coord-b { bottom:9%; right:0 }
@@ -71,12 +72,12 @@ h1,h2,h3 { font-weight:500 }
 .capabilities-ribbon a:hover span { transform:translate(2px,-2px) }
 .perspective2026 { position:relative; padding-bottom:110px }
 .perspective-heading { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:45px }
-.perspective-asterisk { font-size:58px; line-height:.9; color:#73815f }
+.perspective-asterisk { font-size:58px; line-height:.9; color:#73815f; pointer-events:none }
 .perspective-copy { display:grid; grid-template-columns:1.7fr 1fr; gap:70px; align-items:start }
 .perspective-copy h2 { font-size:clamp(36px,4.1vw,65px); letter-spacing:-.06em; line-height:1.17 }
 .perspective-copy p { font-size:13px; max-width:410px; color:#646c5d; line-height:1.9 }
 .perspective-copy .text-link { margin-top:18px }
-.perspective-rule { position:absolute; bottom:65px; height:1px; background:#c8cec0; width:100% }
+.perspective-rule { position:absolute; bottom:65px; height:1px; background:#c8cec0; width:100%; pointer-events:none }
 .selected-work2026 { padding-top:95px; overflow:hidden; background:radial-gradient(ellipse at 40% 52%,#2e352c 0%,#131612 55%,#101211 85%) }
 .portfolio-section-heading { display:flex; justify-content:space-between; gap:50px; align-items:flex-end; padding-bottom:45px }
 .portfolio-section-heading h2 { font-family:'Inter Variable',sans-serif; font-size:clamp(52px,7vw,108px); line-height:.98; letter-spacing:-.065em; margin-top:28px }
@@ -184,7 +185,7 @@ h1,h2,h3 { font-weight:500 }
 .entry-number { position:absolute; top:11px; right:0; color:#5f744f; font-size:7px }
 .collection-note { border-top:1px solid #b7c5a6; padding-block:55px 100px; display:grid; grid-template-columns:1fr 1.65fr; column-gap:100px }
 .collection-note .label { align-self:start }.collection-note h2 { font-size:clamp(37px,4vw,63px) }.collection-note .text-link { grid-column:2; width:fit-content; margin-top:22px }
-.boot-screen { position:fixed; inset:0; z-index:1000; background:#101510; color:#e2ead9; display:grid; place-items:center; clip-path:inset(0); isolation:isolate }
+.boot-screen { position:fixed; inset:0; z-index:1000; background:#101510; color:#e2ead9; display:grid; place-items:center; clip-path:inset(0); isolation:isolate; pointer-events:none }
 .boot-corners { position:absolute; inset:35px; border:1px solid #6f825344; pointer-events:none }
 .boot-corners::before,.boot-corners::after { content:'+'; font:16px monospace; color:#9aac88; position:absolute; background:#101510; padding:5px; top:-14px; left:-12px }
 .boot-corners::after { left:auto; top:auto; right:-12px; bottom:-14px }
@@ -193,7 +194,7 @@ h1,h2,h3 { font-weight:500 }
 .boot-name { font-family:'Inter Variable'; font-size:36px; letter-spacing:.13em; font-weight:400 }
 .boot-name span { font-family:monospace; font-size:9px; letter-spacing:.65em; display:block; margin:10px 0 0 3px; color:#aab99b }
 .boot-bottom { position:absolute; left:65px; right:65px; bottom:65px; display:grid; grid-template-columns:auto 1fr 25px auto; align-items:center; gap:30px }
-.boot-bottom > .mono { font-size:7px; color:#a7b79b }.boot-bottom button { font-size:9px; padding:10px 0; color:#c5d6b4 }
+.boot-bottom > .mono { font-size:7px; color:#a7b79b }.boot-bottom button { font-size:9px; padding:10px 0; color:#c5d6b4; pointer-events:auto }
 .boot-rail { height:1px; background:#5e734340 }.boot-rail i { display:block; height:1px; width:100%; background:#c4d8af; transform-origin:left }
 @media(min-width:1600px) { .hero2026-main { min-height:690px }.hero-object-frame { height:425px }.engineered-object { max-width:470px } }
 @media(max-width:1150px) {
