@@ -23,7 +23,7 @@ export default function PortfolioGallery({full=false}:{full?:boolean}) {
     <div className="gallery-topline mono"><span><i className="status-dot"/> INTERACTIVE SYSTEM COLLECTION</span><span>THREE ORIGINAL CONCEPTS / 2026</span></div>
     <div className="gallery-stage" id={`${id}-panel`} role="tabpanel" aria-labelledby={`${id}-tab-${active}`}>
       <div className="gallery-ghost" aria-hidden="true">{project.number}</div>
-      <Suspense fallback={<div className="gallery-loading mono">ASSEMBLING THE COLLECTION…</div>}><PortfolioScene active={active} onSelect={select} onEnter={()=>navigate(`/portfolio/${project.slug}`)}/></Suspense>
+      <Suspense fallback={<div className="gallery-loading mono">ASSEMBLING THE COLLECTION…</div>}><PortfolioScene active={active} onSelect={select} onEnter={(index=active)=>navigate(`/portfolio/${projects[index].slug}`)}/></Suspense>
       <div className="gallery-interaction mono"><MoveHorizontal size={16}/><span>DRAG TO EXPLORE <b>·</b> CLICK A SYSTEM TO ENTER</span></div>
     </div>
     <div className="gallery-controls">

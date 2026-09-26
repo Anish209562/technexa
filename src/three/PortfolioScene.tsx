@@ -3,7 +3,7 @@ import * as THREE from 'three'
 import gsap from 'gsap'
 import { projects } from '../data/projects'
 
-type SceneProps={active:number; onSelect:(index:number)=>void; onEnter:()=>void}
+type SceneProps={active:number; onSelect:(index:number)=>void; onEnter:(index?:number)=>void}
 function projectTexture(index:number) {
   const canvas=document.createElement('canvas'); canvas.width=1400; canvas.height=950
   const c=canvas.getContext('2d')!; const p=projects[index]
@@ -75,7 +75,7 @@ export default function PortfolioScene({active,onSelect,onEnter}:SceneProps) {
     })
     const floor=new THREE.GridHelper(40,40,0x424d39,0x35432c);floor.position.y=-2.3;(floor.material as THREE.Material).transparent=true;(floor.material as THREE.Material).opacity=.35;scene.add(floor)
     const motion=matchMedia('(prefers-reduced-motion: reduce)')
-    let inView=true,disposed=false,entering=false,frame=0,settleUntil=0,pointerX=0,pointerY=0
+    let inView=true,disposed=false,entering=false,frame=0,settleUntil=0,pointerX=0,pointerY=0,selectedIndex=-1,transitionId=0
     const tweens:gsap.core.Tween[]=[]
     const render=(now:number)=>{
       frame=0;if(disposed||!inView||document.hidden)return
@@ -84,19 +84,27 @@ export default function PortfolioScene({active,onSelect,onEnter}:SceneProps) {
       if(now<settleUntil&&!motion.matches)frame=requestAnimationFrame(render)
     }
     const invalidate=()=>{settleUntil=performance.now()+1400;if(!frame&&inView&&!document.hidden)frame=requestAnimationFrame(render)}
-    const select=(index:number)=>{
+    const enter=(index=selectedIndex)=>{
+      if(entering)return
+      entering=true
+      transitionId++
+      if(motion.matches){callbacks.current.onEnter(index);return}
+      const plate=plates[index]
+      tweens.push(gsap.to(plate.position,{z:2.9,x:0,y:0,duration:.5,ease:'power3.in',onUpdate:invalidate,onComplete:()=>callbacks.current.onEnter(index)}))
+      tweens.push(gsap.to(plate.rotation,{x:0,y:0,z:0,duration:.45}))
+    }
+    const select=(index:number,enterAfter=false)=>{
+      if(selectedIndex===index&&!enterAfter)return
+      selectedIndex=index
       entering=false
+      const id=++transitionId
       tweens.forEach(t=>t.kill());tweens.length=0
       plates.forEach((plate,i)=>{const raw=i-index;const offset=raw>1?raw-projects.length:raw< -1?raw+projects.length:raw;const position={x:offset*4.7,y:Math.abs(offset)*.15,z:-Math.abs(offset)*1.35};const rotation={x:offset===0?-.035:0,y:offset===0?-.09:offset>0?-.4:.4,z:offset===0?-.035:offset*.03};if(motion.matches){plate.position.set(position.x,position.y,position.z);plate.rotation.set(rotation.x,rotation.y,rotation.z)}else{tweens.push(gsap.to(plate.position,{...position,duration:1.05,ease:'power3.inOut',onUpdate:invalidate}),gsap.to(plate.rotation,{...rotation,duration:1.05,ease:'power3.inOut'}))}})
       invalidate()
-    }
-    const enter=()=>{
-      if(entering)return
-      entering=true
-      if(motion.matches){callbacks.current.onEnter();return}
-      const plate=plates[callbacks.current.active]
-      tweens.push(gsap.to(plate.position,{z:2.9,x:0,y:0,duration:.5,ease:'power3.in',onUpdate:invalidate,onComplete:()=>callbacks.current.onEnter()}))
-      tweens.push(gsap.to(plate.rotation,{x:0,y:0,z:0,duration:.45}))
+      if(enterAfter) {
+        if(motion.matches) requestAnimationFrame(()=>enter(index))
+        else tweens.push(gsap.delayedCall(1.05,()=>{ if(id===transitionId) enter(index) }))
+      }
     }
     controls.current={select,enter}
     const resize=()=>{const {width,height}=el.getBoundingClientRect();if(!width||!height)return;renderer.setSize(width,height);camera.aspect=width/height;camera.position.z=width<600?8.4:7.7;camera.updateProjectionMatrix();invalidate()}
@@ -111,7 +119,7 @@ export default function PortfolioScene({active,onSelect,onEnter}:SceneProps) {
       if(Math.abs(dx)+Math.abs(dy)>15)return
       const r=el.getBoundingClientRect();raycaster.setFromCamera(new THREE.Vector2((e.clientX-r.left)/r.width*2-1,-(e.clientY-r.top)/r.height*2+1),camera)
       const hit=raycaster.intersectObjects(plates.map(p=>p.children[0]))[0]
-      if(hit){const index=hit.object.userData.index as number;if(index===callbacks.current.active)enter();else callbacks.current.onSelect(index)}
+      if(hit){const index=hit.object.userData.index as number;if(index===selectedIndex)enter(index);else{callbacks.current.onSelect(index);select(index,true)}}
     }
     const reset=()=>{downX=null;pointerX=0;pointerY=0;invalidate()}
     const visibility=()=>{if(document.hidden){cancelAnimationFrame(frame);frame=0}else invalidate()}
@@ -123,5 +131,5 @@ export default function PortfolioScene({active,onSelect,onEnter}:SceneProps) {
     return()=>{disposed=true;controls.current=null;cancelAnimationFrame(frame);tweens.forEach(t=>t.kill());observer.disconnect();intersection.disconnect();el.removeEventListener('pointerdown',down);el.removeEventListener('pointermove',move);el.removeEventListener('pointerup',up);el.removeEventListener('pointercancel',reset);el.removeEventListener('pointerleave',reset);document.removeEventListener('visibilitychange',visibility);motion.removeEventListener('change',resize);geometries.forEach(g=>g.dispose());materials.forEach(m=>m.dispose());textures.forEach(t=>t.dispose());floor.geometry.dispose();(floor.material as THREE.Material).dispose();renderer.dispose();renderer.domElement.remove()}
   },[])
   useEffect(()=>{controls.current?.select(active)},[active])
-  return <div className="portfolio-webgl" ref={host} role="group" aria-label={`Three-dimensional portfolio: ${projects[active].name}. Use the project index or arrow controls below to change projects.`}>{failed&&<div className="portfolio-fallback"><span>TNX / {projects[active].number}</span><h3>{projects[active].name}</h3><p>{projects[active].summary}</p><button onClick={onEnter}>Explore this system ↗</button></div>}</div>
+  return <div className="portfolio-webgl" ref={host} role="group" aria-label={`Three-dimensional portfolio: ${projects[active].name}. Use the project index or arrow controls below to change projects.`}>{failed&&<div className="portfolio-fallback"><span>TNX / {projects[active].number}</span><h3>{projects[active].name}</h3><p>{projects[active].summary}</p><button onClick={()=>onEnter(active)}>Explore this system ↗</button></div>}</div>
 }
