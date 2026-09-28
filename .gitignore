@@ -17,6 +17,7 @@ dist-ssr
 .env.*
 !.env.example
 artifacts/
+coverage/
 *.tsbuildinfo
 /innerWidth
 .vercel/

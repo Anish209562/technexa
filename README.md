@@ -20,6 +20,9 @@ To get subsequent changes in an existing clone, commit or stash your local chang
 ```sh
 npm run build
 npm run lint
+npm run typecheck
+npm run test
+npm run test:coverage
 npm run preview -- --port 4174
 ```
 
@@ -56,6 +59,9 @@ Set the public values in `.env.local`, using `.env.example`:
 
 - `VITE_SITE_URL`: the eventual site origin, such as the real company domain, without a trailing slash. The production build then emits absolute canonical/OG URLs and a sitemap. Without it, the local preview derives its origin and production HTML uses relative canonical paths.
 - `VITE_CONTACT_EMAIL`: the real business inbox. This enables a user-reviewed email draft. Automatic submission, email delivery and CRM lead storage are not configured. Without the inbox, visitors can still download or copy their brief. The site accurately explains this.
+- `VITE_SENTRY_DSN`: optional browser error tracking DSN. If unset, the observability module does not initialize remote reporting.
+- `BASE_PATH`: optional build-time base path for GitHub Pages deployments, such as `/tnsol`.
+- `PREVIEW_URL`: optional target for the local verification scripts.
 
 No project/contact data is written to persistent storage. The intro does not use persistent storage. No remote fonts, analytics or advertising scripts are included.
 
@@ -74,6 +80,26 @@ Project pages are served from a subpath, so the workflow passes `BASE_PATH` (the
 The build also emits `404.html` so unknown deep links load the app and reach the 404 route, and `.nojekyll` so no file is stripped by Jekyll. To move to a custom domain instead, set the domain under Settings, Pages and remove `BASE_PATH` from the workflow so the site builds at the root.
 
 ## Verification
+
+The default quality gates are:
+
+```sh
+npm run lint
+npm run typecheck
+npm run test:coverage
+npm audit --audit-level=high
+npm run build
+```
+
+CircleCI runs those gates for repository changes. Dependabot checks npm updates weekly, and GitHub Actions publishes the static site to Pages.
+
+For a containerized production preview:
+
+```sh
+docker compose up --build
+```
+
+Open **http://localhost:8080/**. The Docker image serves the generated static site with a basic health check.
 
 Optional Windows browser checks use the installed agent-browser executable. Start the development server first. If the browser is not installed, run `npx agent-browser install` once.
 
